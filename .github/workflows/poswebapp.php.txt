@@ -1,0 +1,129 @@
+<?php
+
+class RestaurantPOS {
+
+    /** @var mysqli $conn The database connection object. */
+    private $conn;
+
+    /**
+     * Constructor for the RestaurantPOS class.
+     *
+     * @param string $host The database host.
+     * @param string $username The database username.
+     * @param string $password The database password.
+     * @param string $database The database name.
+     *
+     * @throws Exception If there is an error connecting to the database.
+     */
+    public function __construct($host, $username, $password, $database) {
+        // Create a new database connection
+        $this->conn = new mysqli($host, $username, $password, $database);
+
+        // Check if there was an error connecting to the database
+        if ($this->conn->connect_error) {
+            throw new Exception("Failed to connect to the database: " . $this->conn->connect_error);
+        }
+    }
+
+    /**
+     * Add a new item to the stock.
+     *
+     * @param string $name The name of the item.
+     * @param int $quantity The initial quantity of the item in stock.
+     *
+     * @return bool True if the item was added successfully, false otherwise.
+     */
+    public function addNewItem($name, $quantity) {
+        // Prepare the SQL statement
+        $stmt = $this->conn->prepare("INSERT INTO stock (name, quantity) VALUES (?, ?)");
+
+        // Bind the parameters to the statement
+        $stmt->bind_param("si", $name, $quantity);
+
+        // Execute the statement
+        $result = $stmt->execute();
+
+        // Close the statement
+        $stmt->close();
+
+        return $result;
+    }
+
+    /**
+     * Update the quantity of an item in stock.
+     *
+     * @param int $itemId The ID of the item.
+     * @param int $quantity The new quantity of the item in stock.
+     *
+     * @return bool True if the quantity was updated successfully, false otherwise.
+     */
+    public function updateItemQuantity($itemId, $quantity) {
+        // Prepare the SQL statement
+        $stmt = $this->conn->prepare("UPDATE stock SET quantity = ? WHERE id = ?");
+
+        // Bind the parameters to the statement
+        $stmt->bind_param("ii", $quantity, $itemId);
+
+        // Execute the statement
+        $result = $stmt->execute();
+
+        // Close the statement
+        $stmt->close();
+
+        return $result;
+    }
+
+    /**
+     * Get the quantity of an item in stock.
+     *
+     * @param int $itemId The ID of the item.
+     *
+     * @return int The quantity of the item in stock, or -1 if the item was not found.
+     */
+    public function getItemQuantity($itemId) {
+        // Prepare the SQL statement
+        $stmt = $this->conn->prepare("SELECT quantity FROM stock WHERE id = ?");
+
+        // Bind the parameters to the statement
+        $stmt->bind_param("i", $itemId);
+
+        // Execute the statement
+        $stmt->execute();
+
+        // Bind the result to a variable
+        $stmt->bind_result($quantity);
+
+        // Fetch the result
+        $stmt->fetch();
+
+        // Close the statement
+        $stmt->close();
+
+        // Return the quantity or -1 if the item was not found
+        return isset($quantity) ? $quantity : -1;
+    }
+}
+
+// Usage demonstration of the RestaurantPOS class
+
+// Create a new instance of the RestaurantPOS class
+$pos = new RestaurantPOS("database_host", "database_username", "database_password", "database_name");
+
+// Example 1: Add a new item to the stock
+$itemName = "Pizza";
+$itemQuantity = 10;
+$result1 = $pos->addNewItem($itemName, $itemQuantity);
+echo "Item added to stock: " . ($result1 ? "Success" : "Failed") . "\n";
+
+// Example 2: Update the quantity of an item in stock
+$itemId = 1;
+$newQuantity = 5;
+$result2 = $pos->updateItemQuantity($itemId, $newQuantity);
+echo "Item quantity updated: " . ($result2 ? "Success" : "Failed") . "\n";
+
+// Example 3: Get the quantity of an item in stock
+$itemId = 1;
+$quantity = $pos->getItemQuantity($itemId);
+echo "Item quantity: " . ($quantity != -1 ? $quantity : "Item not found") . "\n";
+
+?>
