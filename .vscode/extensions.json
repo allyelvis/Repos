@@ -1,5 +1,7 @@
 {
     "recommendations": [
-        "jebbs.plantuml"
+        "jebbs.plantuml",
+        "broadcommfd.ccf",
+        "micro-focus-amc.mfcobol"
     ]
 }
