@@ -2,6 +2,11 @@
     "recommendations": [
         "jebbs.plantuml",
         "broadcommfd.ccf",
-        "micro-focus-amc.mfcobol"
+        "micro-focus-amc.mfcobol",
+        "cloorc.kubernetes-tools",
+        "vscjava.vscode-java-test",
+        "platformio.platformio-ide",
+        "wallabyjs.quokka-vscode",
+        "devsense.phptools-vscode"
     ]
 }

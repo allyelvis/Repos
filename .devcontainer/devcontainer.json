@@ -11,7 +11,12 @@
 		"vscode": {
 			"extensions": [
 				"BroadcomMFD.ccf",
-				"Micro-Focus-AMC.mfcobol"
+				"Micro-Focus-AMC.mfcobol",
+				"cloorc.kubernetes-tools",
+				"vscjava.vscode-java-test",
+				"platformio.platformio-ide",
+				"WallabyJs.quokka-vscode",
+				"DEVSENSE.phptools-vscode"
 			]
 		}
 	}
