@@ -9,6 +9,7 @@
         "wallabyjs.quokka-vscode",
         "devsense.phptools-vscode",
         "harryhopkinson.vs-code-runner",
-        "ms-python.python"
+        "ms-python.python",
+        "rubberduck.rubberduck-vscode"
     ]
 }
