@@ -7,6 +7,8 @@
         "vscjava.vscode-java-test",
         "platformio.platformio-ide",
         "wallabyjs.quokka-vscode",
-        "devsense.phptools-vscode"
+        "devsense.phptools-vscode",
+        "harryhopkinson.vs-code-runner",
+        "ms-python.python"
     ]
 }

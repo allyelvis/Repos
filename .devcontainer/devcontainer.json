@@ -16,7 +16,9 @@
 				"vscjava.vscode-java-test",
 				"platformio.platformio-ide",
 				"WallabyJs.quokka-vscode",
-				"DEVSENSE.phptools-vscode"
+				"DEVSENSE.phptools-vscode",
+				"HarryHopkinson.vs-code-runner",
+				"ms-python.python"
 			]
 		}
 	}
