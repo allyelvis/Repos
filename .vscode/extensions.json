@@ -10,6 +10,7 @@
         "devsense.phptools-vscode",
         "harryhopkinson.vs-code-runner",
         "ms-python.python",
-        "rubberduck.rubberduck-vscode"
+        "rubberduck.rubberduck-vscode",
+        "googlecloudtools.cloudcode"
     ]
 }
