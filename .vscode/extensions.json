@@ -12,5 +12,9 @@
         "ms-python.python",
         "rubberduck.rubberduck-vscode",
         "googlecloudtools.cloudcode",
+        "formulahendry.code-runner",
+        "ms-vscode-remote.remote-containers",
+        "webostvsdk.webostv",
+        "formulahendry.docker-explorer",
     ]
 }

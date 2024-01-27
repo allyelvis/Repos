@@ -18,7 +18,11 @@
 				"WallabyJs.quokka-vscode",
 				"DEVSENSE.phptools-vscode",
 				"HarryHopkinson.vs-code-runner",
-				"ms-python.python"
+				"ms-python.python",
+				"formulahendry.code-runner",
+				"ms-vscode-remote.remote-containers",
+				"webOSTVSDK.webostv",
+				"formulahendry.docker-explorer",
 			]
 		}
 	}
