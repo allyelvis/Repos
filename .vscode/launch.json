@@ -1,3 +1,12 @@
 {
-    "openInDocker": {}
+    "openInDocker": {},
+    "configurations": [
+        {
+            "name": "Python: File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "justMyCode": true
+        }
+    ]
 }
